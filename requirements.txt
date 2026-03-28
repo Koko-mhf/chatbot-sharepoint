@@ -1,0 +1,16 @@
+
+# Backend
+flask==3.1.0
+flask-cors==5.0.1
+
+# LLM (Groq + LLaMA 3 — GRATUIT)
+groq==0.25.0
+
+# Env variables
+python-dotenv==1.1.0
+
+# Microsoft Graph API (optionnel, pour connecter SharePoint)
+requests==2.32.3
+
+# Tests
+pytest==8.3.5

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "sp-001",
+    "title": "Créer un site SharePoint",
+    "category": "sharepoint",
+    "tags": ["sharepoint", "site", "créer", "nouveau", "collection"],
+    "content": "Pour créer un site SharePoint :\n1. Allez sur https://votre-tenant.sharepoint.com\n2. Cliquez sur '+ Créer un site'\n3. Choisissez 'Site d'équipe' (collaboratif) ou 'Site de communication' (publication)\n4. Nommez votre site et configurez les paramètres\n5. Cliquez sur 'Terminer'\n\nSite d'équipe = travail collaboratif avec un groupe Microsoft 365\nSite de communication = communication large (newsletter, portail)",
+    "source": "https://learn.microsoft.com/fr-fr/sharepoint/create-site-collection"
+  },
+  {
+    "id": "sp-002",
+    "title": "Gérer les permissions SharePoint",
+    "category": "sharepoint",
+    "tags": ["permission", "accès", "droit", "partage", "sécurité", "autorisation"],
+    "content": "Niveaux de permissions SharePoint :\n- Contrôle total : administration complète\n- Conception : modifier les listes et pages\n- Modification : ajouter, modifier, supprimer des éléments\n- Contribution : ajouter des éléments\n- Lecture : voir le contenu sans modifier\n\nPour modifier les permissions :\n1. Allez dans Paramètres du site > Autorisations du site\n2. Cliquez sur 'Paramètres avancés des autorisations'\n3. Ajoutez des utilisateurs ou groupes\n4. Attribuez le niveau souhaité\n\nAstuce : Utilisez des groupes SharePoint plutôt que des permissions individuelles.",
+    "source": "https://learn.microsoft.com/fr-fr/sharepoint/understanding-permission-levels"
+  },
+  {
+    "id": "sp-003",
+    "title": "Créer une bibliothèque de documents",
+    "category": "sharepoint",
+    "tags": ["bibliothèque", "document", "fichier", "stockage", "dossier"],
+    "content": "Pour créer une bibliothèque de documents :\n1. Allez sur votre site SharePoint\n2. Cliquez sur '+ Nouveau' > 'Bibliothèque de documents'\n3. Nommez la bibliothèque\n4. Vous pouvez ajouter des colonnes de métadonnées personnalisées\n5. Activez le versioning pour garder un historique des modifications\n\nLimites : 30 millions d'éléments par bibliothèque, 250 Go par fichier.\nSynchronisation avec OneDrive possible via le bouton 'Synchroniser'.",
+    "source": "https://learn.microsoft.com/fr-fr/sharepoint/create-document-library"
+  },
+  {
+    "id": "sp-004",
+    "title": "Créer et gérer des listes SharePoint",
+    "category": "sharepoint",
+    "tags": ["liste", "formulaire", "colonnes", "données", "suivi"],
+    "content": "Les listes SharePoint permettent de suivre des données structurées.\n1. Cliquez sur '+ Nouveau' > 'Liste'\n2. Choisissez un modèle ou créez une liste vide\n3. Ajoutez des colonnes : Texte, Nombre, Choix, Date, Personne, Oui/Non\n4. Créez des vues personnalisées pour filtrer et trier\n5. Utilisez les règles de mise en forme conditionnelle\n\nLes listes peuvent être connectées à Power Automate pour automatiser des workflows.",
+    "source": "https://learn.microsoft.com/fr-fr/sharepoint/lists-and-libraries-overview"
+  },
+  {
+    "id": "teams-001",
+    "title": "Créer une équipe Microsoft Teams",
+    "category": "teams",
+    "tags": ["teams", "équipe", "créer", "canal", "groupe"],
+    "content": "Pour créer une équipe Teams :\n1. Ouvrez Microsoft Teams\n2. Cliquez sur 'Équipes' dans la barre latérale\n3. Cliquez sur 'Rejoindre ou créer une équipe' > 'Créer une équipe'\n4. Choisissez le type : Privée, Publique, ou À partir d'un groupe existant\n5. Nommez l'équipe et ajoutez une description\n6. Ajoutez des membres\n\nChaque équipe a un site SharePoint associé automatiquement.\nLe canal 'Général' est créé par défaut et ne peut pas être supprimé.",
+    "source": "https://learn.microsoft.com/fr-fr/microsoftteams/get-started-with-teams-create-your-first-teams-and-channels"
+  },
+  {
+    "id": "teams-002",
+    "title": "Planifier et gérer des réunions Teams",
+    "category": "teams",
+    "tags": ["réunion", "visio", "appel", "planifier", "calendrier", "enregistrement"],
+    "content": "Pour planifier une réunion Teams :\n1. Allez dans Calendrier Teams\n2. Cliquez sur '+ Nouvelle réunion'\n3. Ajoutez un titre, des participants, la date et l'heure\n4. Ajoutez un canal Teams si la réunion concerne une équipe\n5. Cliquez sur 'Enregistrer'\n\nOptions utiles :\n- Enregistrement : commencez l'enregistrement pendant la réunion\n- Transcription : activez la transcription en direct\n- Salle de répartition : divisez les participants en sous-groupes\n- Tableau blanc : collaboration visuelle en temps réel",
+    "source": "https://learn.microsoft.com/fr-fr/microsoftteams/tutorial-meetings-in-teams"
+  },
+  {
+    "id": "od-001",
+    "title": "Synchroniser OneDrive avec l'ordinateur",
+    "category": "onedrive",
+    "tags": ["onedrive", "synchronisation", "sync", "fichier", "local", "hors ligne"],
+    "content": "Pour synchroniser OneDrive :\n1. Installez l'app OneDrive (préinstallée sur Windows 10/11)\n2. Connectez-vous avec votre compte Microsoft 365\n3. Choisissez les dossiers à synchroniser\n4. Vos fichiers apparaissent dans l'Explorateur de fichiers\n\nFichiers à la demande :\n- Icône nuage = en ligne uniquement (pas d'espace disque)\n- Icône coche verte = disponible hors ligne\n- Clic droit > 'Toujours garder sur cet appareil' pour forcer le hors ligne\n\nStockage : 1 To par utilisateur avec Microsoft 365 Business.",
+    "source": "https://learn.microsoft.com/fr-fr/onedrive/one-drive-sync"
+  },
+  {
+    "id": "od-002",
+    "title": "Partager des fichiers avec OneDrive",
+    "category": "onedrive",
+    "tags": ["partage", "lien", "accès", "externe", "invité", "collaboration"],
+    "content": "Pour partager un fichier ou dossier OneDrive :\n1. Sélectionnez le fichier dans OneDrive\n2. Cliquez sur 'Partager'\n3. Choisissez le type de lien :\n   - Personnes spécifiques (le plus sécurisé)\n   - Personnes de votre organisation\n   - Toute personne ayant le lien (le moins sécurisé)\n4. Définissez les droits : Peut modifier / Peut afficher\n5. Envoyez le lien\n\nPartage externe : doit être activé par l'admin dans le Centre d'administration SharePoint.",
+    "source": "https://learn.microsoft.com/fr-fr/onedrive/share-files-in-onedrive"
+  },
+  {
+    "id": "pa-001",
+    "title": "Créer un flux Power Automate",
+    "category": "power_automate",
+    "tags": ["power automate", "flux", "automatisation", "workflow", "notification"],
+    "content": "Power Automate permet d'automatiser des tâches :\n1. Allez sur https://make.powerautomate.com\n2. Cliquez sur '+ Créer' > 'Flux de cloud automatisé'\n3. Choisissez un déclencheur (ex: 'Quand un fichier est créé dans SharePoint')\n4. Ajoutez des actions (ex: 'Envoyer un e-mail', 'Créer un élément de liste')\n5. Testez et activez le flux\n\nExemples utiles :\n- Notification quand un document est modifié\n- Approbation automatique de demandes\n- Copie de fichiers entre bibliothèques\n- Archivage automatique",
+    "source": "https://learn.microsoft.com/fr-fr/power-automate/getting-started"
+  },
+  {
+    "id": "admin-001",
+    "title": "Centre d'administration SharePoint",
+    "category": "administration",
+    "tags": ["admin", "administration", "centre", "tenant", "paramètres", "quota"],
+    "content": "Le Centre d'administration SharePoint (https://admin.microsoft.com) permet de :\n- Gérer les sites (créer, supprimer, restaurer)\n- Configurer le partage externe\n- Définir les quotas de stockage\n- Gérer les politiques d'accès\n- Voir les rapports d'utilisation\n\nAccès : réservé aux administrateurs SharePoint ou Global Admin.\nChemin : Centre d'admin Microsoft 365 > Centres d'admin > SharePoint.",
+    "source": "https://learn.microsoft.com/fr-fr/sharepoint/get-started-new-admin-center"
+  }
+]
