@@ -1,6 +1,6 @@
 /**
  * Zo — Assistant Microsoft 365
- * Frontend JavaScript
+ * Bulle flottante + fenêtre de chat
  */
 
 // ─── Config ──────────────────────────────────────────────────
@@ -11,21 +11,51 @@ const SESSION_ID =
     "zo_" + Date.now() + "_" + Math.random().toString(36).slice(2, 8);
 sessionStorage.setItem("zo_session", SESSION_ID);
 
-// ─── SVG Icons (pas d'emojis) ────────────────────────────────
+// ─── SVG Icons ───────────────────────────────────────────────
 
 const SPARKLE_SVG = `<svg class="sparkle-icon-sm" viewBox="0 0 24 24" fill="none"><path d="M12 2L13.09 8.26L18 6L14.74 10.91L21 12L14.74 13.09L18 18L13.09 15.74L12 22L10.91 15.74L6 18L9.26 13.09L3 12L9.26 10.91L6 6L10.91 8.26L12 2Z" fill="currentColor"/></svg>`;
 
-const USER_SVG = `<svg class="user-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
+const USER_SVG = `<svg class="user-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
 
 // ─── DOM ─────────────────────────────────────────────────────
 
-const messagesContainer = document.getElementById("chat-messages");
-const chatInput = document.getElementById("chat-input");
-const btnSend = document.getElementById("btn-send");
+const chatBubble = document.getElementById("chat-bubble");
+const chatWindow = document.getElementById("chat-window");
+const btnClose = document.getElementById("btn-close");
 const btnClear = document.getElementById("btn-clear");
+const btnSend = document.getElementById("btn-send");
+const chatInput = document.getElementById("chat-input");
+const messagesContainer = document.getElementById("chat-messages");
 const quickSuggestions = document.getElementById("quick-suggestions");
 
 let isLoading = false;
+let isOpen = false;
+
+// ─── Ouvrir / Fermer (+ communication SharePoint iframe) ─────
+
+function openChat() {
+    window.parent.postMessage("zo-open", "*");
+    isOpen = true;
+    chatWindow.classList.remove("closed");
+    chatWindow.classList.add("open");
+    chatBubble.classList.add("hidden");
+    setTimeout(() => chatInput.focus(), 400);
+}
+
+function closeChat() {
+    window.parent.postMessage("zo-close", "*");
+    isOpen = false;
+    chatWindow.classList.remove("open");
+    chatWindow.classList.add("closed");
+    chatBubble.classList.remove("hidden");
+}
+
+chatBubble.addEventListener("click", openChat);
+btnClose.addEventListener("click", closeChat);
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isOpen) closeChat();
+});
 
 // ─── Envoi de message ────────────────────────────────────────
 
@@ -36,7 +66,6 @@ async function sendMessage(text) {
     appendMessage("user", message);
     chatInput.value = "";
     chatInput.style.height = "auto";
-
     quickSuggestions.style.display = "none";
 
     isLoading = true;
@@ -63,8 +92,8 @@ async function sendMessage(text) {
         }
     } catch (error) {
         typingEl.remove();
-        appendMessage("bot", "Impossible de contacter le serveur. Vérifiez que le backend est démarré.");
-        console.error("Erreur réseau:", error);
+        appendMessage("bot", "Impossible de contacter le serveur. Verifiez que le backend est demarre.");
+        console.error("Erreur reseau:", error);
     } finally {
         isLoading = false;
         btnSend.disabled = false;
@@ -118,7 +147,6 @@ function formatMessage(text) {
 
     html = "<p>" + html + "</p>";
     html = html.replace(/(<li>.*?<\/li>)+/g, "<ul>$&</ul>");
-
     return html;
 }
 
@@ -157,16 +185,14 @@ async function clearConversation() {
     messages.forEach((msg, index) => {
         if (index > 0) msg.remove();
     });
-
     quickSuggestions.style.display = "flex";
-    chatInput.focus();
 }
 
 // ─── Auto-resize ─────────────────────────────────────────────
 
 function autoResize() {
     chatInput.style.height = "auto";
-    chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + "px";
+    chatInput.style.height = Math.min(chatInput.scrollHeight, 100) + "px";
 }
 
 // ─── Events ──────────────────────────────────────────────────
@@ -184,9 +210,5 @@ chatInput.addEventListener("keydown", (e) => {
 chatInput.addEventListener("input", autoResize);
 
 document.querySelectorAll(".suggestion").forEach((btn) => {
-    btn.addEventListener("click", () => {
-        sendMessage(btn.dataset.question);
-    });
+    btn.addEventListener("click", () => sendMessage(btn.dataset.question));
 });
-
-chatInput.focus();
