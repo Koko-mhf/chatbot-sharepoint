@@ -34,7 +34,7 @@ class LLMClient:
         api_key = os.getenv("GROQ_API_KEY")
         if not api_key:
             raise ValueError(
-                "❌ GROQ_API_KEY manquante ! "
+                " GROQ_API_KEY manquante ! "
                 "Crée un compte gratuit sur https://console.groq.com "
                 "et ajoute ta clé dans le fichier .env"
             )
@@ -42,7 +42,7 @@ class LLMClient:
         self.model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
         self.max_tokens = int(os.getenv("GROQ_MAX_TOKENS", "1024"))
         self.temperature = float(os.getenv("GROQ_TEMPERATURE", "0.3"))
-        logger.info(f"✅ LLM initialisé : {self.model}")
+        logger.info(f" LLM initialisé : {self.model}")
 
     def generate_response(
         self,
