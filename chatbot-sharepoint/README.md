@@ -1,6 +1,6 @@
 #  Chatbot SharePoint — Assistant Microsoft 365
 
-Chatbot d'aide aux outils **SharePoint, Teams, OneDrive** propulsé par **Groq + LLaMA 3** (gratuit).
+Chatbot d'aide aux outils **SharePoint, Teams, OneDrive** propulsé par **Groq + LLaMA 3** .
 
 ##  Ce qui a changé
 
